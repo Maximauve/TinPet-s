@@ -39,11 +39,13 @@ export async function getOne(name, id) {
     return parseDocument(snapshot);
 };
 
-export async function register(userId, name, password) {
+export async function register(userId, name, password, email, num) {
     const userRef = collection(db, "user");
     await setDoc(doc(userRef, "user" + userId), {
         id : userId,
         name : name,
         password : password,
+        email : email,
+        num : num,
     });
 };

@@ -1,8 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { View, Text, StyleSheet } from "react-native";
 
-import Home from "./Home";
-
 function Accueil() {
   return (
     <View style={styles.root}>

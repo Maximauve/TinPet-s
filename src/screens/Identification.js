@@ -10,7 +10,6 @@ import {
 } from "react-native";
 
 import app from "../../app.json";
-import data from "../../assets/data.json";
 import ColorContext from "../ColorContext";
 import Button from "../components/Button";
 import Greetings from "../components/Greetings";
@@ -65,7 +64,6 @@ function Identification({ navigation }) {
   const onNavigateToHome = () => {
     navigation.navigate("Accueil");
   };
-  
   const onNavigateToRegister = () => {
     navigation.navigate("Register");
   };
@@ -75,19 +73,6 @@ function Identification({ navigation }) {
       <Image source={require("../../assets/icon.png")} style={styles.logo} />
     </View>
   );
-  if (member) {
-    return (
-      <View style={styles.root}>
-        {header}
-        <View style={styles.content}>
-          <Greetings {...member} />
-          <View style={styles.actions}>
-            <Button title="Aller à l'accueil" onPress={onNavigateToHome} />
-          </View>
-        </View>
-      </View>
-    );
-  }
   if (error) {
     return (
       <View style={styles.root}>

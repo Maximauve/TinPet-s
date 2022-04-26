@@ -6,7 +6,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Identification from "./screens/Identification";
 import Home from "./screens/Home";
-import Accueil from "./screens/Accueil";
 import ColorContext from "./ColorContext";
 import Register from "./screens/Register";
 

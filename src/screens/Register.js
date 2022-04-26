@@ -20,6 +20,9 @@ function Identification({ navigation }) {
   const [, setColor] = useContext(ColorContext);
   const [name, setName] = useState("");
   const [mdp, setMdp] = useState("");
+  const [confirmMdp, setConfirmMdp] = useState("");
+  const [email, setEmail] = useState("");
+  const [num, setNumero] = useState("");
   const [member, setMember] = useState(null);
   const [error, setError] = useState(false);
   const styles = createStyles({
@@ -34,35 +37,44 @@ function Identification({ navigation }) {
     setError(false);
     setMdp(text);
   };
+  const ChangeConfirmMdp = (text) => {
+    setError(false);
+    setConfirmMdp(text);
+  };
+  const ChangeEmail = (text) => {
+    setError(false);
+    setEmail(text);
+  };
+  const ChangeNumero = (text) => {
+    setError(false);
+    setNumero(text);
+  };
 
   const [users, setUsers] = useState([]);
   const getUsers = async () => {
     if (!global.data.users) {
       try {
-        setUsers(await getAll("user")).then((Users) => {global.data.users = Users});
+        global.data.users = await getAll("user");
       } catch (error) {
         console.error(error);
       };
-    } else {
-      setUsers(global.data.users);
     }
+    setUsers(global.data.users);
   };
   useEffect(() => {
     getUsers();
   }, []);
 
   const Register = () => {
-    console.log(name);
-    console.log(mdp);
-    if (name.length > 0 && mdp.length > 0) {
+    if (name.length > 0 && mdp.length > 0 && mdp === confirmMdp && email.length > 0 && num.length > 0) {
         if (users.length === 0) {
-            register(0, name, mdp);
+            register(0, name, mdp, email, num);
             global.session = {"id":0,"name" : name, "password" : mdp};
             onNavigateToHome();
         } else {
             let id = users[users.length - 1].id;
             global.session = {"id": id,"name" : name, "password" : mdp};
-            register(id, name, mdp);
+            register(id, name, mdp, email, num);
             onNavigateToHome();
         }
     } else {
@@ -126,8 +138,29 @@ function Identification({ navigation }) {
           value={mdp}
           onChangeText={ChangeMdp}
         />
+        <TextInput
+          placeholder="Confirmer le mot de passe"
+          secureTextEntry={true}
+          style={styles.input}
+          value={confirmMdp}
+          onChangeText={ChangeConfirmMdp}
+        />
+        <TextInput
+          placeholder="Email"
+          textContentType="emailAddress"
+          style={styles.input}
+          value={email}
+          onChangeText={ChangeEmail}
+        />
+        <TextInput
+          placeholder="Numero de téléphone"
+          textContentType="telephoneNumber"
+          style={styles.input}
+          value={num}
+          onChangeText={ChangeNumero}
+        />
         <View style={styles.actions}>
-          <Button title="S'identier" onPress={onNavigateToIdentification} />
+          <Button title="J'ai un compte !" onPress={onNavigateToIdentification} />
           <Button title="Creer un compte" onPress={Register} />
         </View>
       </View>
