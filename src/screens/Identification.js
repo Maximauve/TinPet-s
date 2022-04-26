@@ -8,11 +8,12 @@ import {
   TextInput,
   View,
 } from "react-native";
+import bcrypt from "bcryptjs";
 
 import app from "../../app.json";
 import ColorContext from "../ColorContext";
 import Button from "../components/Button";
-import Greetings from "../components/Greetings";
+// import Greetings from "../components/Greetings";
 import { getAll } from "../firebase";
 
 function Identification({ navigation }) {
@@ -49,10 +50,10 @@ function Identification({ navigation }) {
     setMdp(text);
   };
 
-  const onPress = () => {
+  const onPress =  () => {
     if (name.length > 0 && mdp.length > 0) {
-      users.find((user) => {
-        if (user.name === name && user.password === mdp) {
+      users.find(async (user) => {
+        if (user.name === name && await bcrypt.compare(mdp, user.password)) {
           global.session = user;
           onNavigateToHome();
         }

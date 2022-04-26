@@ -8,6 +8,7 @@ import {
   TextInput,
   View,
 } from "react-native";
+import bcrypt from "bcryptjs";
 
 import app from "../../app.json";
 import ColorContext from "../ColorContext";
@@ -64,18 +65,19 @@ function Identification({ navigation }) {
     getUsers();
   }, []);
 
-  const Register = () => {
+  const Register = async () => {
     if (name.length > 0 && mdp.length > 0 && mdp === confirmMdp && email.length > 0 && num.length > 0) {
+        let hashedMdp = await bcrypt.hash(mdp, 10);
         if (users.length === 0) {
-            register(0, name, mdp, email, num);
-            global.data.users += { "id": 0, "name" : name, "password" : mdp, "email" : email, "num" : num };
-            global.session = {"id":0,"name" : name, "password" : mdp};
+            register(0, name, hashedMdp, email, num);
+            global.data.users += { "id": 0, "name" : name, "password" : hashedMdp, "email" : email, "num" : num };
+            global.session = {"id":0,"name" : name, "password" : hashedMdp};
             onNavigateToHome();
         } else {
             let id = users[users.length - 1].id + 1;
-            global.data.users += { "id": id, "name" : name, "password" : mdp, "email" : email, "num" : num };
-            global.session = {"id": id,"name" : name, "password" : mdp};
-            register(id, name, mdp, email, num);
+            global.data.users += { "id": id, "name" : name, "password" : hashedMdp, "email" : email, "num" : num };
+            global.session = {"id": id,"name" : name, "password" : hashedMdp};
+            register(id, name, hashedMdp, email, num);
             onNavigateToHome();
         }
     } else {
