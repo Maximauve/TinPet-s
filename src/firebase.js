@@ -49,3 +49,13 @@ export async function register(userId, name, password, email, num) {
         num : num,
     });
 };
+
+export async function modifyProfil(id, name, email, num) {
+    const userRef = collection(db, "user");
+    await setDoc(doc(userRef, "user" + id), {
+        id : id,
+        name : name,
+        email : email,
+        num : num,
+    });
+};

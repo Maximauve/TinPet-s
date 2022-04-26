@@ -71,12 +71,12 @@ function Identification({ navigation }) {
         if (users.length === 0) {
             register(0, name, hashedMdp, email, num);
             global.data.users += { "id": 0, "name" : name, "password" : hashedMdp, "email" : email, "num" : num };
-            global.session = {"id":0,"name" : name, "password" : hashedMdp};
+            global.session = {"id":0,"name" : name, "password" : hashedMdp, "email" : email, "num" : num};
             onNavigateToHome();
         } else {
             let id = users[users.length - 1].id + 1;
             global.data.users += { "id": id, "name" : name, "password" : hashedMdp, "email" : email, "num" : num };
-            global.session = {"id": id,"name" : name, "password" : hashedMdp};
+            global.session = {"id": id,"name" : name, "password" : hashedMdp, "email" : email, "num" : num};
             register(id, name, hashedMdp, email, num);
             onNavigateToHome();
         }
