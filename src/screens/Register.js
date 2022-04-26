@@ -10,10 +10,9 @@ import {
 } from "react-native";
 
 import app from "../../app.json";
-import data from "../../assets/data.json";
 import ColorContext from "../ColorContext";
 import Button from "../components/Button";
-import Greetings from "../components/Greetings";
+// import Greetings from "../components/Greetings";
 import { getAll, register } from "../firebase";
 
 function Identification({ navigation }) {
@@ -69,10 +68,12 @@ function Identification({ navigation }) {
     if (name.length > 0 && mdp.length > 0 && mdp === confirmMdp && email.length > 0 && num.length > 0) {
         if (users.length === 0) {
             register(0, name, mdp, email, num);
+            global.data.users += { "id": 0, "name" : name, "password" : mdp, "email" : email, "num" : num };
             global.session = {"id":0,"name" : name, "password" : mdp};
             onNavigateToHome();
         } else {
-            let id = users[users.length - 1].id;
+            let id = users[users.length - 1].id + 1;
+            global.data.users += { "id": id, "name" : name, "password" : mdp, "email" : email, "num" : num };
             global.session = {"id": id,"name" : name, "password" : mdp};
             register(id, name, mdp, email, num);
             onNavigateToHome();
