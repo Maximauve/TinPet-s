@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+import { hash } from "bcryptjs";
 import { useContext, useState, useEffect } from "react";
 import {
   Dimensions,
@@ -8,7 +9,7 @@ import {
   TextInput,
   View,
 } from "react-native";
-import bcrypt from "bcryptjs";
+// import bcrypt from "bcryptjs";
 
 import app from "../../app.json";
 import Button from "../components/Button";
@@ -65,7 +66,8 @@ function Identification({ navigation }) {
 
   const Register = async () => {
     if (name.length > 0 && mdp.length > 0 && mdp === confirmMdp && email.length > 0 && num.length > 0) {
-        let hashedMdp = await bcrypt.hash(mdp, 10);
+        // let hashedMdp = await bcrypt.hash(mdp, 10);
+        let hashedMdp = mdp;
         if (users.length === 0) {
             register(0, name, hashedMdp, email, num);
             global.data.users += { "id": 0, "name" : name, "password" : hashedMdp, "email" : email, "num" : num };
