@@ -46,6 +46,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+package-lock.json
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
@@ -373,6 +374,7 @@ Temporary Items
 !.yarn/plugins
 !.yarn/sdks
 !.yarn/versions
+yarn.lock
 
 # if you are NOT using Zero-installs, then:
 # comment the following lines
