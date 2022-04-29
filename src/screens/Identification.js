@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Dimensions,
   Image,
@@ -11,29 +11,26 @@ import {
 import bcrypt from "bcryptjs";
 
 import app from "../../app.json";
-import ColorContext from "../ColorContext";
 import Button from "../components/Button";
 // import Greetings from "../components/Greetings";
 import { getAll } from "../firebase";
 
 function Identification({ navigation }) {
-  const [, setColor] = useContext(ColorContext);
   const [name, setName] = useState("");
   const [mdp, setMdp] = useState("");
-  const [member, setMember] = useState(null);
   const [error, setError] = useState(false);
   const styles = createStyles({
     error,
-    member: Boolean(member),
   });
   const [users, setUsers] = useState([]);
   const getUsers = async () => {
     if (!global.data.users) {
       try {
         global.data.users = await getAll("user");
-      } catch (error) {
-        console.error(error);
-      };
+      // eslint-disable-next-line no-catch-shadow
+      } catch (err) {
+        console.error(err);
+      }
     }
     setUsers(global.data.users);
   };
@@ -130,30 +127,30 @@ function Identification({ navigation }) {
 
 export default Identification;
 
-const createStyles = ({ error, member }) =>
+const createStyles = ({ error }) =>
   StyleSheet.create({
     root: {
       flex: 1,
       justifyContent: "center",
     },
     header: {
-      flexDirection: error || member ? "row" : "column",
+      flexDirection: error ? "row" : "column",
       alignItems: "center",
       justifyContent: "flex-end",
     },
     content: {
-      flexGrow: error || member ? 1 : 0,
+      flexGrow: error ? 1 : 0,
       alignItems: "center",
       justifyContent: "center",
     },
     title: {
-      fontSize: error || member ? 12 : 32,
+      fontSize: error ? 12 : 32,
       fontWeight: "700",
     },
     logo: {
-      height: error || member ? 32 : 192,
-      width: error || member ? 32 : 192,
-      marginLeft: error || member ? 8 : 0,
+      height: error ? 32 : 192,
+      width: error ? 32 : 192,
+      marginLeft: error ? 8 : 0,
     },
     input: {
       borderColor: error ? "red" : "black",
