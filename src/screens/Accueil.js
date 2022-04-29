@@ -3,9 +3,11 @@
 /* eslint-disable prettier/prettier */
 import { View, Text, StyleSheet, Button, Image } from "react-native";
 import { useState } from "react";
+// import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
 function Accueil() {
   const [cat, setCat] = useState("");
+
   const getCat = async () => {
     await fetch("https://api.thecatapi.com/v1/images/search")
     .then(response => response.json())
@@ -15,14 +17,14 @@ function Accueil() {
   };
 
 
-
   if (!cat) {
     getCat();
   }
+  
   return (
     <View style={styles.root}>
       <Text>Accueil.</Text>
-      <Image source={{uri:cat[0], width:200,height:200 }}/>
+      <Image source={{ uri: cat[0], width: 200, height: 200 }} />
       <Button title="Changer de chat" onPress={getCat} />
     </View>
   );

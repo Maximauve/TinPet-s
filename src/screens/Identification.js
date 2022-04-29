@@ -47,14 +47,15 @@ function Identification({ navigation }) {
     setMdp(text);
   };
 
-  const onPress =  () => {
+  const onPress = async () => {
     if (name.length > 0 && mdp.length > 0) {
-      users.find(async (user) => {
+      await users.find(async (user) => {
         if (user.name === name && await bcrypt.compare(mdp, user.password)) {
           global.session = user;
           onNavigateToHome();
         }
       });
+      setError(true);
     } else {
       setError(true);
     }

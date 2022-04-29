@@ -11,13 +11,11 @@ import {
 import bcrypt from "bcryptjs";
 
 import app from "../../app.json";
-import ColorContext from "../ColorContext";
 import Button from "../components/Button";
 // import Greetings from "../components/Greetings";
 import { getAll, register } from "../firebase";
 
 function Identification({ navigation }) {
-  const [, setColor] = useContext(ColorContext);
   const [name, setName] = useState("");
   const [mdp, setMdp] = useState("");
   const [confirmMdp, setConfirmMdp] = useState("");
