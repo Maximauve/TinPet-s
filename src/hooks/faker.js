@@ -19,15 +19,15 @@ export default class Faker {
     }
 
     static getPoils = () => {
-        return poils[Math.floor(Math.random * poils.length)];
+        return poils[Math.floor(Math.random() * poils.length)];
     }
 
     static getCarac = () => {
-        return caracteres[Math.floor(Math.random * caracteres.length)];
+        return caracteres[Math.floor(Math.random() * caracteres.length)];
     }
 
     static getOrga = () => {
-        return organisations[Math.floor(Math.random * organisations.length)];
+        return organisations[Math.floor(Math.random() * organisations.length)];
     }
 
     static getNumOrga = () => {
@@ -35,6 +35,6 @@ export default class Faker {
     }
 
     static getDescription = () => {
-        return "";
+        return "ok";
     }
 }

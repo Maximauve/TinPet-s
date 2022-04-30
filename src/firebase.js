@@ -62,8 +62,7 @@ export async function modifyProfil(id, name, email, num) {
 
 export async function cat(catId, sexe, birthDate, race, poils, caractere, description, name, organisation, nbTelOrga, userId, url) {
     const catRef = collection(db, "cats");
-    console.log("dans le cat")
-    await setDoc(doc(catRef, catId), {
+    await setDoc(doc(catRef, "cat" + catId), {
         id : catId,
         sexe : sexe,
         birthDate : birthDate,
