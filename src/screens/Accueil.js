@@ -10,19 +10,17 @@ import { View, Text, StyleSheet, Button, Image } from "react-native";
 import React, { useState } from "react";
 import IconButton from "./../components/IconButton";
 import styles from "./../components/styles/App_styles";
-import Faker from "./../hooks/faker";
 import { registerCat } from "./../hooks/registerCat";
 
 function Accueil() {
   const [cat, setCat] = useState("");
-  const [myText, setText] = useState("");
 
   const handleOnSwipedLeft = () => {
-    setText("You swiped left!");
     getCat();
   };
   const handleOnSwipedRight = () => {
     registerCat(cat[0]);
+    global.isUp = false;
     getCat();
   };
 
@@ -35,14 +33,13 @@ function Accueil() {
   };
 
   if (!cat) {
-    getCat();
+    getCat(); // getNyanCat(); (easter egg)
   }
 
   return (
     <View
       style={styles.container}
     >
-        <Text style={styles.text}>{myText}</Text>
       <Image source={{uri: cat[0]}} style={{width: 300, height: 300}} />
       <View style={styles.buttonsContainer}>
         <IconButton

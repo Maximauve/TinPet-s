@@ -11,6 +11,8 @@ import Register from "./screens/Register";
 
 global.data = {};
 global.session = {};
+global.cats = [];
+global.isUp = false;
 
 const Stack = createNativeStackNavigator();
 
@@ -22,7 +24,7 @@ export default function App() {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Identification" component={Identification} />
           <Stack.Screen name="Register" component={Register} />
-          <Stack.Screen name="Accueil" component={Home} />
+          <Stack.Screen name="Home" component={Home} />
         </Stack.Navigator>
       </NavigationContainer>
     </ColorContext.Provider>

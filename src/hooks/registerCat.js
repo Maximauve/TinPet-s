@@ -7,7 +7,18 @@ export const registerCat = async (url) => {
     let allCats = await getAll("cats");
     let id = 0;
     if (allCats.length !== 0) {
-        id = allCats[allCats.length - 1].id + 1;
+        id = allCats.reduce((oldCat, currentCat) => oldCat.id > currentCat.id ? oldCat : currentCat).id + 1;
     }
-    cat(id, Faker.getSexe(),Faker.getBirthdate().toLocaleDateString(),Faker.getRace(), Faker.getPoils(), Faker.getCarac(), Faker.getDescription(), Faker.getName(), Faker.getOrga(), Faker.getNumOrga(), global.session.id, url);
+    let sexe = Faker.getSexe();
+    let age = Faker.getBirthdate().toLocaleDateString();
+    let description = Faker.getDescription();
+    let name = Faker.getName();
+    let userId = global.session.id;
+    let poils = Faker.getPoils();
+    let caractere = Faker.getCarac();
+    let race = Faker.getRace();
+    let numTelOrga = Faker.getNumOrga();
+    let organisation = Faker.getOrga();
+    global.cats.push(id, sexe, age, race, poils, caractere, description, name, organisation, numTelOrga, userId, url);
+    cat(id, sexe, age, race, poils, caractere, description, name, organisation, numTelOrga, userId, url);
 };

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { useState, useEffect, useContext } from "react";
 import { Gyroscope } from "expo-sensors";
 import { colord, extend } from "colord";
