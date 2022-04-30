@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-import { hash } from "bcryptjs";
 import { useContext, useState, useEffect } from "react";
 import {
   Dimensions,

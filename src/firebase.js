@@ -59,3 +59,22 @@ export async function modifyProfil(id, name, email, num) {
         num : num,
     });
 };
+
+export async function cat(catId, sexe, birthDate, race, poils, caractere, description, name, organisation, nbTelOrga, userId, url) {
+    const catRef = collection(db, "cats");
+    console.log("dans le cat")
+    await setDoc(doc(catRef, catId), {
+        id : catId,
+        sexe : sexe,
+        birthDate : birthDate,
+        race : race,
+        poils : poils,
+        caractere : caractere,
+        description : description,
+        name : name,
+        organisation : organisation,
+        nbTelOrga : nbTelOrga,
+        userId : userId,
+        url : url,
+    });
+};

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 function Button({ title, onPress }) {
