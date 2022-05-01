@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { names, races, poils, caracteres, organisations } from "./fake.json";
+import { names, races, poils, caracteres, organisations, descriptions } from "./fake.json";
 import { faker } from "@faker-js/faker";
 
 export default class Faker {
@@ -35,6 +35,6 @@ export default class Faker {
     }
 
     static getDescription = () => {
-        return "ok";
+        return descriptions[Math.floor(Math.random() * descriptions.length)];
     }
 }
