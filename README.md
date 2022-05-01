@@ -2,39 +2,46 @@
   <img
     width="300px"
     src="docs/logo.png"
-    alt="Venn Project Logo" />
+    alt="TinPet's Logo" />
 </p>
 
-<h1 align="center">Venn Project</h1>
+<h1 align="center">TinPet's/h1>
 
 ## Introduction
 
-Venn Project allows members to create communities to collaborate on projects.
+TinPet's est une application destiné à la SPA (Société Protectrice des Animaux).
+Le but étant que chaque Organisation SPA propose ses chats à l'adoption.
+L'utilisateur pourrait donc, comme le système de swipe des sites de rencontres, aimer les chats qu'il préfère,
+les retrouver dans sa Bibliotheque, et pouvoir ensuite contacter l'organisation concercée.
 
-[Use it now !](https://expo.dev/@qbaepst/venn-project)
+Voici notre lien menant vers notre application Expo :
+[Use it now !](notre lien expo mdr)
 
-## Contributing
+## Soucis de production 
 
-[Yarn](https://classic.yarnpkg.com/en/docs/cli/) is used as package manager.
+Pour des raisons de fonctionnalité, les chats sont obtenus grâce à une API externe.
+Il n'est donc pas possible de les ajouter directement dans l'application.
+Mais dans une future production, cette fonctionnalité sera ajoutée.
 
-To setup your local dev environment:
+## Installation
 
-1. Install [Yarn](https://classic.yarnpkg.com/en/docs/install)
+1. Installer [Yarn](https://classic.yarnpkg.com/en/docs/install)
 
-2. Clone repository
+2. Cloner le repo
 
 ```sh
-git clone git@github.com:quibaritaenperdresatrompe/venn-project.git
-cd venn-project
+git clone git@github.com:Maximauve/TinPet-s.git
+cd TinPet-s
 ```
 
-3. Install dependencies
+3. Installez les dépendences
 
 ```sh
 yarn install
 ```
 
-4. See [more available scripts](README.md#scripts)
+4. Lancez l'application grâce aux différents [scripts](README.md#scripts)
+
 
 ## Available Scripts
 
@@ -55,19 +62,3 @@ Opens your app in Expo Go on a connected Android device.
 ### `ios`
 
 Opens your app in Expo Go in a currently running iOS simulator on your computer.
-
-### `commit`
-
-Runs the [`git-cz`](https://github.com/streamich/git-cz) CLI to generate commit messages according to the [_Conventional Commit specifications_](https://www.conventionalcommits.org/en/v1.0.0/#specification).
-
-### `format`
-
-Runs [Prettier](https://prettier.io/) with [basic configuration](https://prettier.io/docs/en/configuration.html#basic-configuration).
-
-We recommend to use Prettier in your IDE, e.g. in Visual Studio code with [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
-
-### `lint`
-
-Runs [ESLint](https://eslint.org/) with [standard configuration](https://standardjs.com/).
-
-We recommend to use ESLint in your IDE, e.g. in Visual Studio code with [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
