@@ -48,7 +48,7 @@ function Identification({ navigation }) {
 
   const onPress = async () => {
     if (name.length > 0 && mdp.length > 0) {
-      await users.find(async (user) => {
+      users.forEach(async (user) => {
         if (user.name === name && mdp === user.password) {
           global.session = user;
           onNavigateToHome();
