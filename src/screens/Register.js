@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   Dimensions,
   Image,

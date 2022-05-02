@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { View, Text, StyleSheet, Button, TextInput, Dimensions } from "react-native";
-import { useState } from "react";
+import React, { useState } from "react";
 
 import { modifyProfil } from "../firebase";
 

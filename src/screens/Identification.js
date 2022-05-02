@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Dimensions,
   Image,
@@ -60,7 +60,7 @@ function Identification({ navigation }) {
     }
   };
   const onNavigateToHome = () => {
-    navigation.navigate("Home");
+    navigation.navigate("Accueil");
   };
   const onNavigateToRegister = () => {
     navigation.navigate("Register");
