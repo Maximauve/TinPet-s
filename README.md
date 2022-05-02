@@ -5,12 +5,14 @@
     alt="TinPet's Logo" />
 </p>
 
-<h1 align="center">TinPet's/h1>
+<h1 align="center">TinPet's</h1>
 
 ## Introduction
 
 TinPet's est une application destiné à la SPA (Société Protectrice des Animaux).
+
 Le but étant que chaque Organisation SPA propose ses chats à l'adoption.
+
 L'utilisateur pourrait donc, comme le système de swipe des sites de rencontres, aimer les chats qu'il préfère,
 les retrouver dans sa Bibliotheque, et pouvoir ensuite contacter l'organisation concercée.
 

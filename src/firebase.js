@@ -1,16 +1,19 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable no-unused-vars */
+/* eslint-disable prettier/prettier */
 import { getApp, getApps, initializeApp } from "firebase/app";
 import {
 collection,
 doc,
 getDocs,
-setDoc, 
+setDoc,
 getFirestore,
 query,
+deleteDoc,
 getDocFromCache,
 initializeFirestore,
-applicationDefault, 
-cert 
+applicationDefault,
+cert,
 } from "firebase/firestore";
 
 const config = {
@@ -27,17 +30,17 @@ export const db = getFirestore(app);
 
 function parseDocument(document) {
     return { id: document.id, ...document.data() };
-};
+}
 export async function getAll(name) {
     const snapshot = await getDocs(query(collection(db, name)));
     console.log("Getting all ...");
     return snapshot.docs.map(parseDocument);
-};
+}
 export async function getOne(name, id) {
     const snapshot = await getDocFromCache(doc(db, name, id));
     console.log("Getting one ...");
     return parseDocument(snapshot);
-};
+}
 
 export async function register(userId, name, password, email, num) {
     const userRef = collection(db, "user");
@@ -48,7 +51,7 @@ export async function register(userId, name, password, email, num) {
         email : email,
         num : num,
     });
-};
+}
 
 export async function modifyProfil(id, name, email, num) {
     const userRef = collection(db, "user");
@@ -58,11 +61,10 @@ export async function modifyProfil(id, name, email, num) {
         email : email,
         num : num,
     });
-};
+}
 
 export async function cat(catId, sexe, birthDate, race, poils, caractere, description, name, organisation, nbTelOrga, userId, url) {
     const catRef = collection(db, "cats");
-    console.log(catId);
     await setDoc(doc(catRef, "cat" + catId), {
         id : catId,
         sexe : sexe,
@@ -77,4 +79,10 @@ export async function cat(catId, sexe, birthDate, race, poils, caractere, descri
         userId : userId,
         url : url,
     });
-};
+}
+
+export async function deleteCat(catId) {
+    const catRef = collection(db, "cats");
+    console.log(catId);
+    await deleteDoc(doc(catRef, "cat" + catId));
+}

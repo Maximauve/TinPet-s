@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { View, Text, StyleSheet, ScrollView, Button, Pressable, Image, TextInput } from "react-native";
-import { useState } from "react";
-import { getAll } from "../firebase";
+import React, { useState } from "react";
+import { deleteCat, getAll } from "../firebase";
 import { CardViewWithImage } from "react-native-simple-card-view";
 
 function Bibliotheque() {
@@ -53,7 +53,7 @@ function Bibliotheque() {
       // } else {
       global.cats = cats;
       // }
-      
+      console.log(global.cats);
       // setCats(cats);
       setUp(true);
     });
@@ -171,18 +171,18 @@ function Bibliotheque() {
       </View>
       <ScrollView contentContainerStyle={styles.scrollView}>
         {global.cats.map((cat) => (
-          <CardViewWithImage
-              width={ ( 300 )}
-              content={ cat.description }
-              source={ {uri: cat.url } }
-              title={ cat.name }
-              imageWidth={ 300 }
-              imageHeight={ 300 }
-              onPress={ () => viewCat(cat.id) }
-              roundedImage={ false }
-              imageMargin={ {top: 10} }
-              key={cat.id}
-          />
+          <View key={`view-${cat.id}`}><CardViewWithImage
+            width={(300)}
+            content={cat.description}
+            source={{ uri: cat.url }}
+            title={cat.name}
+            imageWidth={300}
+            imageHeight={300}
+            onPress={() => viewCat(cat.id)}
+            roundedImage={false}
+            imageMargin={{ top: 10 }}
+            key={`card-${cat.id}`} />
+            <Button title="Supprimer" onPress={() => {deleteCat(cat.id); getCats();}} key={`button-${cat.id}`}/></View>
         ))}
         </ScrollView>
     </View>
