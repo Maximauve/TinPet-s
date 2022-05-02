@@ -57,11 +57,3 @@ Démarre un serveur local de développement, voir [`expo start`](https://docs.ex
 ### `web`
 
 Ouvre l'application dans un navigateur
-
-### `android`
-
-Ouvre l'application dans "Expo go" sur un appareil Android connecté.
-
-### `ios`
-
-Ouvre l'application dans "Expo go" sur un simulateur IOS lancé sur votre ordinateur.
