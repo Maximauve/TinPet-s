@@ -17,9 +17,11 @@ L'utilisateur pourrait donc, comme le système de swipe des sites de rencontres,
 les retrouver dans sa Bibliotheque, et pouvoir ensuite contacter l'organisation concercée.
 
 Voici notre lien menant vers notre application Expo :
-[Use it now !](notre lien expo mdr)
+[Use it now !](https://expo.dev/@mattox40/venn-project?serviceType=classic&distribution=expo-go)
 
-## Soucis de production 
+## Soucis de production
+
+Suite à divers problèmes lors de la réalisation de cette application, elle n'est uniquement accessible via interfacce web.
 
 Pour des raisons de fonctionnalité, les chats sont obtenus grâce à une API externe.
 Il n'est donc pas possible de les ajouter directement dans l'application.
@@ -44,23 +46,22 @@ yarn install
 
 4. Lancez l'application grâce aux différents [scripts](README.md#scripts)
 
-
 ## Available Scripts
 
-In the project directory, you can run:
+Une fois à l'intérieur du projet, vous pouvez lancer l'application via `yarn` suivi de :
 
 ### `start`
 
-Starts local dev server for the app, see [`expo start`](https://docs.expo.dev/workflow/expo-cli/#expo-start).
+Démarre un serveur local de développement, voir [`expo start`](https://docs.expo.dev/workflow/expo-cli/#expo-start).
 
 ### `web`
 
-Opens your app in a web browser.
+Ouvre l'application dans un navigateur
 
 ### `android`
 
-Opens your app in Expo Go on a connected Android device.
+Ouvre l'application dans "Expo go" sur un appareil Android connecté.
 
 ### `ios`
 
-Opens your app in Expo Go in a currently running iOS simulator on your computer.
+Ouvre l'application dans "Expo go" sur un simulateur IOS lancé sur votre ordinateur.

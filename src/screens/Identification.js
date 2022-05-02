@@ -60,7 +60,7 @@ function Identification({ navigation }) {
     }
   };
   const onNavigateToHome = () => {
-    navigation.navigate("Home");
+    navigation.navigate("Accueil");
   };
   const onNavigateToRegister = () => {
     navigation.navigate("Register");
