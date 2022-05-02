@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { useState } from "react";
+import React, { useState } from "react";
 import { registerRootComponent } from "expo";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
