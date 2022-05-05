@@ -33,12 +33,12 @@ function parseDocument(document) {
 }
 export async function getAll(name) {
     const snapshot = await getDocs(query(collection(db, name)));
-    console.log("Getting all ...");
+    //console.log("Getting all ...");
     return snapshot.docs.map(parseDocument);
 }
 export async function getOne(name, id) {
     const snapshot = await getDocFromCache(doc(db, name, id));
-    console.log("Getting one ...");
+    //console.log("Getting one ...");
     return parseDocument(snapshot);
 }
 
@@ -83,6 +83,5 @@ export async function cat(catId, sexe, birthDate, race, poils, caractere, descri
 
 export async function deleteCat(catId) {
     const catRef = collection(db, "cats");
-    console.log(catId);
     await deleteDoc(doc(catRef, "cat" + catId));
 }

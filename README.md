@@ -21,11 +21,11 @@ Voici notre lien menant vers notre application Expo :
 
 ## Soucis de production
 
-Suite à divers problèmes lors de la réalisation de cette application, elle n'est uniquement accessible via interfacce web.
-
 Pour des raisons de fonctionnalité, les chats sont obtenus grâce à une API externe.
 Il n'est donc pas possible de les ajouter directement dans l'application.
 Mais dans une future production, cette fonctionnalité sera ajoutée.
+
+Note importante : **Vous devez recharger l'application pour voir vos chats dans votre Bibliotheque**
 
 ## Installation
 

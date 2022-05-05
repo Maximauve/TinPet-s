@@ -53,7 +53,6 @@ function Bibliotheque() {
       // } else {
       global.cats = cats;
       // }
-      console.log(global.cats);
       // setCats(cats);
       setUp(true);
     });
